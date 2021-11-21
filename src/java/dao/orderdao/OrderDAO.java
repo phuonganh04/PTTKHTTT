@@ -16,4 +16,5 @@ public interface OrderDAO {
     public boolean delete(Order order);
     public void viewCustomer(Customer customer);
     public boolean update(Order order);
+    public boolean insertOrder(Order order);
 }

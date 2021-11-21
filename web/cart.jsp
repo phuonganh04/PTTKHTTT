@@ -85,9 +85,9 @@
 								<h5>Đơn vị vận chuyển</h5>
 								<select name="shipmentId" class="form-control">
 									<c:forEach var="shipment" items="${listShipment }">
-										<option value="${shipment.id }">${shipment.name }&emsp;<fmt:formatNumber
+										<option value="${shipment.id }">${shipment.shipmethod }&emsp;<fmt:formatNumber
 												type="number" maxFractionDigits="3"
-												value="${shipment.price }" />&nbsp;Đ
+												value="${shipment.cost }" />&nbsp;Đ
 										</option>
 									</c:forEach>
 								</select>

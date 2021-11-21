@@ -31,7 +31,6 @@ public class Category {
         this.boookid = boookid;
     }
 
-    
     public String getType() {
         return type;
     }

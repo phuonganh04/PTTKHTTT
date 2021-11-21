@@ -6,6 +6,7 @@
 package model.order;
 
 import java.util.List;
+import model.book.ItemBook;
 
 /**
  *
@@ -16,10 +17,19 @@ public class Cart {
     private int amount;
     private float totalprice;
     private List<ItemBook> itemBook;
+    private Payment payment;
 
     public Cart() {
     }
 
+    public Payment getPayment() {
+        return payment;
+    }
+
+    public void setPayment(Payment payment) {
+        this.payment = payment;
+    }
+    
     public int getId() {
         return id;
     }

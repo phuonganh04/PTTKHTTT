@@ -17,7 +17,7 @@ public class LogoutController extends HttpServlet{
 		cookie.setMaxAge(0);
 		resp.addCookie(cookie);
 		req.getSession().setAttribute("username", null);
-		resp.sendRedirect("/ShopOnline/login");
+		resp.sendRedirect("/ShopOnline_Demo/login");
 
 	}
 

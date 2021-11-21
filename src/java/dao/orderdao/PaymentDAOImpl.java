@@ -40,7 +40,9 @@ public class PaymentDAOImpl extends DAO implements PaymentDAO{
 
     @Override
     public Cart getCart(Cart Cart) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        return null;
+        
     }
 
     @Override

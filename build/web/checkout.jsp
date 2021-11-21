@@ -80,9 +80,9 @@
 							<table style="width: 100%;">
 								<tbody>
 									<tr>
-										<td>${shipment.name }</td>
+										<td>${shipment.shipmethod }</td>
 										<td><fmt:formatNumber type="number" maxFractionDigits="3"
-												value="${shipment.price }" /> Đ</td>
+												value="${shipment.cost }" /> Đ</td>
 									</tr>
 								</tbody>
 							</table>
@@ -93,7 +93,7 @@
 					<div class="thanh-toan">
 						<div class="form-group">
 							<h5>Phương thức thanh toán</h5>
-							${payment.paymentType }
+							${payment.method }
 						</div>
 					</div>
 

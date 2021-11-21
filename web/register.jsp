@@ -54,12 +54,20 @@
                                                             class="form-control" placeholder="Enter password" name="password" />
                         </div>
                         <div class="form-group">
-                            <label>Họ tên:</label> <input type="text" class="form-control"
-                                                          placeholder="Enter full name" name="fullName" />
+                            <label>Tên:</label> <input type="text" class="form-control"
+                                                          placeholder="Enter name" name="Name" />
+                        </div>
+                        <div class="form-group">
+                            <label>Họ Tên:</label> <input type="text" class="form-control"
+                                                          placeholder="Enter fullname" name="fullName" />
+                        </div>
+                        <div class="form-group">
+                            <label>Email:</label> <input type="text"
+                                                                 class="form-control" placeholder="Enter email" name="email" />
                         </div>
                         <div class="form-group">
                             <label>Số điện thoại:</label> <input type="text"
-                                                                 class="form-control" placeholder="Enter mobile" name="mobile" />
+                                                                 class="form-control" placeholder="Enter tel" name="tel" />
                         </div>
                         <div class="form-group">
                             <label>Thành phố:</label> <input type="text" class="form-control"

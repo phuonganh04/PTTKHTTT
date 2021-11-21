@@ -5,10 +5,19 @@ public class Customer {
 	private FullName fullName;
 	private String tel;
         private String email;
+        private String name;
 	private Address address;
 	private Account account;
 
     public Customer() {
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getId() {

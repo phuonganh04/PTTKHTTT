@@ -5,7 +5,7 @@
  */
 package dao.electronicdao;
 
-import model.Electronic;
+import model.electronic.Electronic;
 
 /**
  *

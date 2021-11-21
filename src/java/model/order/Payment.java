@@ -23,11 +23,12 @@ public class Payment {
     private int number;
     private String type;
     private Date expdate;
+    private double totalMoney;
 
     public Payment() {
     }
 
-    public Payment(int id, String method, int shipmentID, int orderID, int cartID, String name, String Bankid, int number, String type, Date expdate) {
+    public Payment(int id, String method, int shipmentID, int orderID, int cartID, String name, String Bankid, int number, String type, Date expdate, double totalMoney) {
         this.id = id;
         this.method = method;
         this.shipmentID = shipmentID;
@@ -38,7 +39,18 @@ public class Payment {
         this.number = number;
         this.type = type;
         this.expdate = expdate;
+        this.totalMoney = totalMoney;
     }
+
+    public double getTotalMoney() {
+        return totalMoney;
+    }
+
+    public void setTotalMoney(double totalMoney) {
+        this.totalMoney = totalMoney;
+    }
+
+    
 
     public String getName() {
         return name;
