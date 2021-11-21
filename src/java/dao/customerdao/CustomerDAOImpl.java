@@ -23,15 +23,16 @@ public class CustomerDAOImpl extends DAO implements CustomerDAO {
     @Override
     public boolean addCustomer(Customer customer) {
         boolean isSuccess = true;
-        String sqlCustomer = "INSERT INTO customer (codecard,name,tel,fullName,card,email) VALUES (?,?,?,?,?,?)";
-        String sqlAccount = "INSERT INTO account (customerid,username,password) VALUES (?,?,?)";
-        String sqlAddress = "INSERT INTO address (customerid,city, noHome, district, street) VALUES (?,?,?,?)";
-        String sqlFullname = "INSERT INTO fullname (customerid,firstname,lastname) VALUES (?,?,?)";
+        String sqlCustomer = "INSERT INTO customer (name,tel,fullName,email) VALUES (?,?,?,?)";
+        String sqlAccount = "INSERT INTO account (username,password) VALUES (?,?)";
+        String sqlAddress = "INSERT INTO address (city, noHome, district, street) VALUES (?,?,?,?)";
+        String sqlFullname = "INSERT INTO fullname (firstname,lastname) VALUES (?,?)";
         try {
             connection.setAutoCommit(false);
             PreparedStatement ps = connection.prepareStatement(sqlAccount, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, customer.getAccount().getUsername());
             ps.setString(2, customer.getAccount().getPassword());
+            ps.setInt(3, customer.getId());
             ps.executeUpdate();
             ResultSet keys = ps.getGeneratedKeys();
             if (keys.next()) {
@@ -43,6 +44,7 @@ public class CustomerDAOImpl extends DAO implements CustomerDAO {
             ps.setString(2, customer.getAddress().getDistrict());
             ps.setString(3, customer.getAddress().getStreet());
             ps.setInt(4, customer.getAddress().getNoHome());
+            ps.setInt(5, customer.getId());
             ps.executeUpdate();
             keys = ps.getGeneratedKeys();
             if (keys.next()) {
@@ -61,8 +63,8 @@ public class CustomerDAOImpl extends DAO implements CustomerDAO {
             ps = connection.prepareStatement(sqlCustomer, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, customer.getFullName().toString());
             ps.setString(2, customer.getTel());
-            ps.setInt(3, customer.getAddress().getId());
-            ps.setInt(4, customer.getAccount().getId());
+            ps.setString(2, customer.getEmail());
+            ps.setString(2, customer.getName());
             ps.executeUpdate();
 
         } catch (SQLException e) {
@@ -89,7 +91,7 @@ public class CustomerDAOImpl extends DAO implements CustomerDAO {
     @Override
     public Customer getCustomer(String username, String password) {
         Customer customer = null;
-        String sql = "SELECT customer.*,address.*,fullname.*,account.* FROM customer,address,fullname,account WHERE customerid=address.customerid AND customerid=fullname.customerid AND customerid=account.customerid AND username=? AND password=?";
+        String sql = "SELECT customer.*,address.*,fullname.*,account.* FROM customer,address,fullname,account WHERE customer.id=address.customerid AND customer.id=fullname.customerid AND customer.id=account.customerid AND username=? AND password=?";
         //String sql = "SELECT * FROM account WHERE username=? AND password=?";
         try {
             PreparedStatement ps = connection.prepareStatement(sql);
@@ -136,7 +138,7 @@ public class CustomerDAOImpl extends DAO implements CustomerDAO {
     @Override
     public List<Customer> findAll() {
         List<Customer> list = new ArrayList<>();
-        String sql = "SELECT customer.*,address.*,fullname.*,account.* FROM customer,address,fullname,account WHERE customerid=address.customerid AND customerid=fullname.customerid AND customerid=account.customerid";
+        String sql = "SELECT customer.*,address.*,fullname.*,account.* FROM customer,address,fullname,account WHERE customer.id=address.customerid AND customer.id=fullname.customerid AND customer.id=account.customerid";
         try {
             PreparedStatement ps = connection.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
@@ -181,7 +183,7 @@ public class CustomerDAOImpl extends DAO implements CustomerDAO {
     @Override
     public Customer findCustomerByUsername(String username) {
         Customer customer = new Customer();
-        String sql = "SELECT customer.*,address.*,fullname.*,account.* FROM customer,address,fullname,account WHERE customerid=address.customerid AND customerid=fullname.customerid AND customerid=account.customerid AND username=?";
+        String sql = "SELECT customer.*,address.*,fullname.*,account.* FROM customer,address,fullname,account WHERE customer.id=address.customerid AND customer.id=fullname.customerid AND customer.id=account.customerid AND username=?";
         try {
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setString(1, username);

@@ -42,6 +42,8 @@ public class RegisterController extends HttpServlet {
                 String district = req.getParameter("district");
                 String no = req.getParameter("noHome");
                 int nohome = Integer.parseInt(no);
+                //String cust = req.getParameter("customerid");
+//                int customerid=Integer.parseInt(cust);
 
 		Boolean flag = false;
 		for (int i = 0; i < customerDAOImpl.findAll().size(); i++) {
@@ -58,6 +60,7 @@ public class RegisterController extends HttpServlet {
 		} else {
 			
 			Address address = new Address();
+                       // address.setCustomerid(customerid);
 			address.setCity(city);
                         address.setStreet(street);
                         address.setDistrict(district);
@@ -65,10 +68,12 @@ public class RegisterController extends HttpServlet {
                         
 
 			Account account = new Account();
+                        //account.setCustomerid(customerid);
 			account.setUsername(username);
 			account.setPassword(password);
                         
                         FullName fullname=new FullName();
+                        //fullname.setCustomerid(customerid);
                         fullname.setFisrtName("firstname");
                         fullname.setLastName("lastname");
                                 
@@ -79,7 +84,7 @@ public class RegisterController extends HttpServlet {
 			customer.setAddress(address);
 			boolean check = customerDAOImpl.addCustomer(customer);
 			if(check) {
-				resp.sendRedirect("/ShopOnline/login");
+				resp.sendRedirect("/ShopOnline_Demo/login");
 			}
 			else {
 				req.setAttribute("status", "faile");

@@ -7,9 +7,7 @@ package dao.shoesdao;
 import dao.DAO;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-
 import model.Shoes;
-import model.shoes.ItemShoes;
 /**
  *
  * @author abc
