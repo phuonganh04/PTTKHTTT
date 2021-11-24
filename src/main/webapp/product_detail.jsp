@@ -34,36 +34,36 @@
 				<div class="row">
 					<div class="col-md-5">
 						<img
-							src="${pageContext.request.contextPath}/static/upload/${product.img }"
+							src="${itemBook.getBook().getImage()}"
 							alt="product">
 						<div class="list-img">
 							<img
-								src="${pageContext.request.contextPath}/static/upload/${product.img }"
+								src="${itemBook.getBook().getImage()}"
 								alt="product">
 						</div>
 					</div>
 					<div class="col-md-7">
-						<h4 class="text-uppercase">${product.name }</h4>
+						<h4 class="text-uppercase">${itemBook.getBook().getTitle()}</h4>
 						<table class="table table-hover">
 							<tbody>
 								<tr>
 									<td>Tác giả</td>
-									<td>${product.author }</td>
+									<td>${itemBook.getBook().getAuthor().getName()}</td>
 								</tr>
 								<tr>
 									<td>Năm XB</td>
-									<td>${product.year }</td>
+									<td>${itemBook.getBook().getPublicationdate()}</td>
 								</tr>
 								<tr>
 									<td>Giá</td>
 									<td><h5><fmt:formatNumber type="number" maxFractionDigits="3"
-										value="${product.price }" /> Đ</h5></td>
+										value="${itemBook.getPrice()}" /> Đ</h5></td>
 								</tr>
 							</tbody>
 						</table>
 						
 						<div class="btn-buy">
-							<a href="buy?id=${product.id }" class="btn btn-warning"
+							<a href="${pageContext.request.contextPath }/&action=buy&id=${itemBook.getId()}" class="btn btn-warning"
 								style="width: 100%; margin-bottom: 10px;">Mua ngay</a>
 						</div>
 					</div>

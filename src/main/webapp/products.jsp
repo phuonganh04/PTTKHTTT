@@ -43,13 +43,12 @@
                 	for(ItemBook item : listItemBook){
                 %>
 				<div class="col-md-3">
-					<a href="book-detail?id=<%=item.getId() %>"> <img
-						src="<%=item.getBook().getImage()%>">
-						<div class="infor" style="text-align: center;">
-
-							<a href="book-detail?id=<%=item.getId()%>">
+					<a href="${pageContext.request.contextPath }/cart?&action=detail&id=<%=item.getId() %>"> 
+						<img src="<%=item.getBook().getImage()%>">
+					<div class="infor" style="text-align: center;">
+						<a href="${pageContext.request.contextPath }/cart?&action=detail&id=<%=item.getId()%>">
 								<h6><%=item.getBook().getTitle() %></h6>
-							</a>
+						</a>
 
 							<div class="price-buy">
 								<p>
@@ -57,9 +56,8 @@
 										value="<%=item.getPrice() %>" />
 									Đ
 								</p>
-								<a
-									href="${pageContext.request.contextPath }/cart?&action=buy&id=<%=item.getId()%>"><i
-									class="fas fa-shopping-cart"></i>&nbsp;+</a>
+								<a href="${pageContext.request.contextPath }/cart?&action=buy&id=<%=item.getId()%>">
+								<i	class="fas fa-shopping-cart"></i>&nbsp;+</a>
 							</div>
 						</div>
 				</div>

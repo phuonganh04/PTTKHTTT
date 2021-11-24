@@ -92,7 +92,7 @@ public class BookDAOImpl implements BookDAO{
 					String language = rs1.getString("Language");
 					String title = rs1.getString("Title");
 					String image = rs1.getString("Image");
-					book = new Book(bookID, ISBN, language, title, publicationdate, numberofpage, author, publisher, category,image);
+					
 					
 					PreparedStatement ps2 = connection.prepareStatement(Usage.getAuthorIDByBookID);
 					ps2.setInt(1,bookID );
@@ -118,7 +118,7 @@ public class BookDAOImpl implements BookDAO{
 					}
 					
 					
-					
+					book = new Book(bookID, ISBN, language, title, publicationdate, numberofpage, author, publisher, category,image);
 					itemBook = new ItemBook(idItem, price, barcode, populartype, discount,book);
 					listItemBook.add(itemBook);
 				}
@@ -169,7 +169,7 @@ public class BookDAOImpl implements BookDAO{
 					String language = rs1.getString("Language");
 					String title = rs1.getString("Title");
 					String image = rs1.getString("Image");
-					book = new Book(bookID, ISBN, language, title, publicationdate, numberofpage, author, publisher, category,image);
+					
 					
 					PreparedStatement ps2 = connection.prepareStatement(Usage.getAuthorIDByBookID);
 					ps2.setInt(1,bookID );
@@ -192,7 +192,8 @@ public class BookDAOImpl implements BookDAO{
 						String address = rs4.getString("Address");
 						String name = rs4.getString("Name");
 						publisher = new Publisher(publisherID, name, address);
-					}			
+					}		
+					book = new Book(bookID, ISBN, language, title, publicationdate, numberofpage, author, publisher, category,image);
 					itemBook = new ItemBook(idItem, price, barcode, populartype, discount,book);
 				}
 			}

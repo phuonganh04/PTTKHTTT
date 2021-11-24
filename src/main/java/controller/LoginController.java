@@ -10,6 +10,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.bookdao.BookDAOImpl;
 import dao.customerdao.CustomerDAOImpl;
@@ -46,10 +47,8 @@ public class LoginController extends HttpServlet{
 			requestDispatcher.forward(req, resp);
 		}
 		else {
-//			List<ItemBook>listItemBook = itemBookDAOImpl.getAllItemBook();
-//			RequestDispatcher requestDispatcher = req.getRequestDispatcher("products.jsp");
-//			req.setAttribute("listItemBook", listItemBook);
-//			requestDispatcher.forward(req, resp);
+			HttpSession session = req.getSession();
+			session.setAttribute("loginCustomer", customer);
 			RequestDispatcher requestDispatcher = req.getRequestDispatcher("products.jsp");
 					requestDispatcher.forward(req, resp);
 			
