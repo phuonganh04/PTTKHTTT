@@ -1,0 +1,66 @@
+package model.customer;
+
+public class Account {
+
+    private int id;
+    private String username;
+    private String password;
+    private int Customerid;
+
+    public Account() {
+        // TODO Auto-generated constructor stub
+    }
+
+    public Account(String username, String password) {
+		super();
+		this.username = username;
+		this.password = password;
+	}
+
+	public Account(String username, String password, int customerid) {
+		super();
+		this.username = username;
+		this.password = password;
+		Customerid = customerid;
+	}
+
+	public Account(int id, String username, String password, int Customerid) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.Customerid = Customerid;
+    }
+
+    public int getCustomerid() {
+        return Customerid;
+    }
+
+    public void setCustomerid(int Customerid) {
+        this.Customerid = Customerid;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+}
